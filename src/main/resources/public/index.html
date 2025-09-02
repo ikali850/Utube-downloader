@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UTube.com - YouTube Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <!-- Header Fragment -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Main Body -->
+    <div class="container my-5">
+        <!-- Hero Section -->
+        <div class="download-box shadow p-4 p-md-5 rounded bg-white text-center">
+            <h1 class="mb-3 fw-bold text-danger">Download YouTube Videos Instantly</h1>
+            <p class="text-muted mb-4">Free online YouTube video & music downloader. Fast, secure, and works on all
+                devices.</p>
+
+            <!-- Input & Button -->
+            <form method="get" action="/convert">
+                <div class="input-group mb-3">
+                    <input type="url" name="url" class="form-control form-control-lg"
+                        placeholder="Paste YouTube Video URL here" required>
+                    <button class="btn btn-danger btn-lg" type="submit">
+                        <i class="bi bi-download"></i> Download
+                    </button>
+                </div>
+            </form>
+            <p class="small text-muted">Example: https://www.youtube.com/watch?v=xxxxxxx</p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row text-center mt-5">
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-lightning-charge text-danger fs-1"></i>
+                <h5 class="mt-3">Super Fast</h5>
+                <p class="small text-muted">Download YouTube videos in seconds with our high-speed servers.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-shield-lock text-danger fs-1"></i>
+                <h5 class="mt-3">Safe & Secure</h5>
+                <p class="small text-muted">We respect your privacy. No data is stored, everything is encrypted.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="bi bi-phone text-danger fs-1"></i>
+                <h5 class="mt-3">Mobile Friendly</h5>
+                <p class="small text-muted">Our downloader works smoothly on any smartphone, tablet, or desktop.</p>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="bg-white shadow rounded p-4 mt-5">
+            <h2 class="text-center fw-bold text-danger mb-4">How to Download?</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <i class="bi bi-link-45deg fs-1 text-danger"></i>
+                    <h6 class="fw-bold mt-2">Step 1</h6>
+                    <p class="small">Copy the YouTube video URL from your browser or YouTube app.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-box-arrow-in-down fs-1 text-danger"></i>
+                    <h6 class="fw-bold mt-2">Step 2</h6>
+                    <p class="small">Paste the URL into the input box above and click "Download".</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="bi bi-check-circle fs-1 text-danger"></i>
+                    <h6 class="fw-bold mt-2">Step 3</h6>
+                    <p class="small">Wait a moment, and your video/audio will be ready to save.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-light p-4 mt-5 rounded shadow-sm">
+            <h3 class="fw-bold text-danger text-center mb-3">Frequently Asked Questions</h3>
+            <div class="accordion" id="faqAccordion">
+
+                <!-- FAQ 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse1">
+                            Is this downloader free?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! UTube.com is 100% free and always will be. No hidden charges.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse2">
+                            Do I need to install any software?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            No installation required! Just paste the URL and download directly from your browser.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse3">
+                            Can I download YouTube Shorts and Reels?
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes! You can download YouTube Shorts, Reels, and regular videos easily.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse4">
+                            Does this work on mobile devices?
+                        </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolutely! UTube.com works perfectly on Android, iOS, tablets, and desktops.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse5">
+                            Can I download in HD quality?
+                        </button>
+                    </h2>
+                    <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, you can download videos in HD, Full HD, and even 4K if available.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse6">
+                            Is it safe to use this downloader?
+                        </button>
+                    </h2>
+                    <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            100% safe! We don’t store your data or downloads. Everything is secure.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq7">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse7">
+                            Can I download playlists?
+                        </button>
+                    </h2>
+                    <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Currently, UTube.com supports single video downloads. Playlist download support will be
+                            added soon.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq8">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse8">
+                            Why does HD video sometimes have no audio?
+                        </button>
+                    </h2>
+                    <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            YouTube often stores HD video and audio separately. In such cases, the downloader merges
+                            them for you.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Fragment -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
