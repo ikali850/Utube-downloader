@@ -73,16 +73,15 @@ public class HomeController {
         Path filePath = Paths.get(FILE_PATH, fileName);
         // If file not already downloaded, fetch using yt-dlp
         // if (!Files.exists(filePath)) {
-        // String cmd = String.format(
-        // "yt-dlp -f %s+%s --merge-output-format mp4 -o '%s'
-        // https://www.youtube.com/watch?v=%s",
-        // formatId, audioId, filePath.toAbsolutePath(), videoId);
-        // ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
-        // pb.redirectErrorStream(false);
-        // Process process = pb.start();
-        // process.waitFor();
+        //     String cmd = String.format(
+        //             "yt-dlp -f %s+%s --merge-output-format mp4 -o '%s' https://www.youtube.com/watch?v=%s",
+        //             formatId, audioId, filePath.toAbsolutePath(), videoId);
+
+        //     ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
+        //     pb.redirectErrorStream(false);
+        //     Process process = pb.start();
+        //     process.waitFor();
         // }
-        System.out.println("premius page accessed");
         if (true) {
             return ResponseEntity.status(HttpStatus.OK)
                     .body(null);

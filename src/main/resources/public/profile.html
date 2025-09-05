@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page - UTube.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .video-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .format-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            transition: 0.2s;
+        }
+
+        .format-card:hover {
+            background: #f1f1f1;
+            transform: scale(1.02);
+        }
+
+        .download-btn {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header fragment -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Main Body -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+
+                        <h3 class="fw-bold mb-4 text-center">
+                            <i class="bi bi-person-circle"></i> Edit Profile
+                        </h3>
+                        <!-- Success Alert -->
+                        <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span th:text="${success}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <!-- Profile Form -->
+                        <form th:action="@{/profile}" method="post">
+
+                            <!-- Full Name -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Full Name</label>
+                                <input type="text" class="form-control" name="fullName" th:value="${profile.fullName}"
+                                    placeholder="Enter your full name">
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Phone</label>
+                                <input type="text" class="form-control" name="phone" th:value="${profile.phone}"
+                                    placeholder="Enter your phone number">
+                            </div>
+
+                            <!-- Address -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Address</label>
+                                <input type="text" class="form-control" name="address" th:value="${profile.address}"
+                                    placeholder="Enter your address">
+                            </div>
+
+                            <!-- Bio -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Bio</label>
+                                <textarea class="form-control" name="bio" rows="3"
+                                    placeholder="Write something about yourself..." th:text="${profile.bio}"></textarea>
+                            </div>
+
+                            <!-- Save Button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success px-4 rounded-pill">
+                                    <i class="bi bi-check-circle"></i> Save Profile
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer fragment -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

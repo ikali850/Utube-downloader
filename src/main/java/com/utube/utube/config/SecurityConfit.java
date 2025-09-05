@@ -15,12 +15,12 @@ public class SecurityConfit {
         try {
             http.csrf(csrf -> csrf.disable());
             http.authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/admin/**").hasRole("ADMIN_USER")
-                    .requestMatchers("/premium/**").hasRole("PREMIUM_USER")
+                    .requestMatchers("/admin/**").hasAuthority("ADMIN_USER")
+                    .requestMatchers("/premium/**").hasAuthority("PREMIUM_USER")
                     .requestMatchers("/**").permitAll() // everything else is public
             );
-            http.formLogin(form -> form.defaultSuccessUrl("/").loginPage("/login").failureForwardUrl("/login")
-                    .failureUrl("/getPremium"));
+            http.exceptionHandling(exception -> exception.accessDeniedPage("/getPremium"));
+            http.formLogin(form -> form.loginPage("/login"));
 
             return http.build();
         } catch (Exception e) {

@@ -50,14 +50,23 @@
                     <h3 class="text-center fw-bold mb-4">
                         <i class="bi bi-box-arrow-in-right text-success me-2"></i> Login
                     </h3>
-                    <form>
+                    <div th:if="${param.error}" class="alert alert-danger">
+                        Invalid username or password!
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success">
+                        You have been logged out successfully.
+                    </div>
+
+                    <form action="/login" method="post">
                         <div class="mb-3">
                             <label for="username" class="form-label fw-bold">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                            <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Enter your username">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label fw-bold">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter password">
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Enter password">
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div class="form-check">

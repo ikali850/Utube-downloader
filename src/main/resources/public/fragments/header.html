@@ -3,7 +3,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
       <!-- Hamburger -->
-      <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasMenu">
         <i class="bi bi-list" style="font-size:1.5rem;"></i>
       </button>
 
@@ -23,12 +24,54 @@
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-unstyled">
-        <li><a href="/" class="nav-link text-white py-2"><i class="bi bi-house"></i> Home</a></li>
-        <li><a href="/about" class="nav-link text-white py-2"><i class="bi bi-info-circle"></i> About</a></li>
-        <li><a href="/faq" class="nav-link text-white py-2"><i class="bi bi-question-circle"></i> FAQ</a></li>
-        <li><a href="/contact" class="nav-link text-white py-2"><i class="bi bi-envelope"></i> Contact</a></li>
+      <ul class="nav flex-column">
+
+        <li class="nav-item">
+          <a href="/" class="nav-link text-white"><i class="bi bi-house"></i> Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/profile" class="nav-link text-white"><i class="bi bi-person"></i>
+            Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/about" class="nav-link text-white"><i class="bi bi-info-circle"></i> About</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/faq" class="nav-link text-white"><i class="bi bi-question-circle"></i> FAQ</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/contact" class="nav-link text-white"><i class="bi bi-envelope"></i> Contact</a>
+        </li>
+
+        <!-- If logged in -->
+        <li class="nav-item mt-3" sec:authorize="isAuthenticated()">
+          <span class="nav-link text-white d-flex align-items-center">
+            <i class="bi bi-person-circle me-2"></i>
+            Welcome, <strong class="ms-1" th:text="${#authentication.name}"></strong>
+          </span>
+        </li>
+
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+          <form th:action="@{/logout}" method="post" class="d-inline">
+            <button type="submit" class="btn btn-outline-light w-100 mt-2">
+              <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+          </form>
+        </li>
+
+        <!-- If NOT logged in -->
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+          <a href="/login" class="btn btn-light w-100 mt-3">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </li>
+
       </ul>
     </div>
+
   </div>
 </div>
