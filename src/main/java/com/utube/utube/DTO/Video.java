@@ -17,4 +17,17 @@ public class Video {
     private long fileSize; // Estimated file size in bytes
     private String downloadUrl; // Direct download URL (optional, generated later)
     private String ext;
+
+    public static String formatViews(long views) {
+        if (views >= 1_000_000_000) {
+            return String.format("%,.1f Billion", views / 1_000_000_000.0);
+        } else if (views >= 1_000_000) {
+            return String.format("%,.1f Million", views / 1_000_000.0);
+        } else if (views >= 1_000) {
+            return String.format("%,d", views);
+        } else {
+            return String.valueOf(views);
+        }
+    }
+
 }

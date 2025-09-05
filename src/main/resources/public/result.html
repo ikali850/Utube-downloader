@@ -50,12 +50,30 @@
                     <img th:src="${videoInfo.thumbnail}" alt="Video Thumbnail" class="img-fluid rounded">
                 </div>
                 <div class="col-md-8 py-2">
-                    <h4 th:text="${videoInfo.title} ?: 'Sample Video Title - Dummy Data'"></h4>
-                    <p><strong>Duration:</strong> <span th:text="${videoInfo.duration} ?: '12:34 Minutes'"></span></p>
-                    <p><strong>Views:</strong> <span th:text="${videoInfo.views} ?: '1,234,567'"></span>
+                    <h4 class="fw-bold mb-3">
+                        <i class="bi bi-play-circle-fill me-2 text-danger"></i>
+                        <span th:text="${videoInfo.title} ?: 'Sample Video Title - Dummy Data'"></span>
+                    </h4>
+
+                    <p class="mb-2">
+                        <i class="bi bi-clock me-2 text-primary"></i>
+                        <strong>Duration:</strong>
+                        <span th:text="${videoInfo.duration} ?: '12:34 Minutes'"></span>
                     </p>
-                    <p><strong>Channel:</strong> <span th:text="${videoInfo.channel} ?: 'Demo Channel Name'"></span></p>
+
+                    <p class="mb-2">
+                        <i class="bi bi-eye me-2 text-success"></i>
+                        <strong>Views:</strong>
+                        <span th:text="${videoInfo.views} ?: '1,234,567'"></span>
+                    </p>
+
+                    <p class="mb-0">
+                        <i class="bi bi-person-circle me-2 text-info"></i>
+                        <strong>Channel:</strong>
+                        <span th:text="${videoInfo.channel} ?: 'Demo Channel Name'"></span>
+                    </p>
                 </div>
+
             </div>
 
             <hr class="my-4">
@@ -83,7 +101,7 @@
 
                 <div class="col-md-6" th:each="q : ${videoInfo.videoFormats}">
                     <div class="format-card">
-                        <h6 th:text="${q.ext.toUpperCase()}">
+                        <h6 th:text="${q.ext.toUpperCase() + ' - ' + q.quality}"></h6>
                         </h6>
                         <p>Size:
                             <span th:text="${q.fileSize != null ? 

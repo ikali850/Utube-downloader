@@ -14,15 +14,27 @@ import lombok.NoArgsConstructor;
 @Builder
 public class YoutubeVideoData {
 
-    private String title; // Video title
-    private String thumbnail; // Thumbnail URL
-    private String channel; // Channel name
-    private String channelId; // Channel ID (optional but useful)
-    private String duration; // Duration in HH:MM:SS format
-    private long views; // Views count
-    private String videoId; // YouTube video ID
-    private String audioId; // Best audio format ID
+    private String title;
+    private String thumbnail;
+    private String channel;
+    private String channelId;
+    private String duration;
+    private long views;
+    private String videoId;
+    private String audioId;
     private Audio audio;
     private List<Video> videoFormats = new ArrayList<>();
+
+    public static String formatViews(long views) {
+        if (views >= 1_000_000_000) {
+            return String.format("%,.1f Billion", views / 1_000_000_000.0);
+        } else if (views >= 1_000_000) {
+            return String.format("%,.1f Million", views / 1_000_000.0);
+        } else if (views >= 1_000) {
+            return String.format("%,d", views);
+        } else {
+            return String.valueOf(views);
+        }
+    }
 
 }
